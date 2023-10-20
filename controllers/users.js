@@ -10,7 +10,7 @@ function createUser(req, res) {
   const { name, about, avatar } = req.body;
   User
     .create({ name, about, avatar })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.status(201).send({ data: user }))
     .catch((err) => (
       err.name === 'ValidationError'
         ? res.status(ERROR_DATA).send({ message: 'Переданы некорректные данные' })
@@ -54,7 +54,7 @@ function setUserInfo(req, res) {
       return res.status(ERROR_NOT_FOUND).send({ message: 'Пользователь не найден' });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError'|| err.name === 'CastError') {
+      if (err.name === 'ValidationError' || err.name === 'CastError') {
         return res.status(ERROR_DATA).send({ message: 'Переданы некорректные данные' });
       }
       return res.status(ERROR_INTERNAL_SERVER).send({ message: 'На сервере ошибка' });
@@ -75,7 +75,7 @@ function setUserAvatar(req, res) {
       return res.status(ERROR_NOT_FOUND).send({ message: 'Пользователь не найден' });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError'|| err.name === 'CastError') {
+      if (err.name === 'ValidationError' || err.name === 'CastError') {
         return res.status(ERROR_DATA).send({ message: 'Переданы некорректные данные' });
       }
       return res.status(ERROR_INTERNAL_SERVER).send({ message: 'На сервере ошибка' });
