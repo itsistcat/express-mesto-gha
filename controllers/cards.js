@@ -72,7 +72,10 @@ function deleteCard(req, res) {
   const { id } = req.params;
   Card
     .findByIdAndRemove(id)
-    .then((card) => res.send({ data: card }))
+    .then((card) => {
+      if (card) return res.send({ data: card });
+      return res.status(ERROR_NOT_FOUND).send({ message: 'Карточка не найдена' });
+    })
     .catch((err) => (
       err.name === 'CastError'
         ? res.status(ERROR_DATA).send({ message: 'Передан некорректный id' })
