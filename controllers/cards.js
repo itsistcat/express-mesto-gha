@@ -104,8 +104,7 @@ function deleteCard(req, res, next) {
 
       card
         .remove()
-        .then(() => res.status(200).send({ data: card }))
-        .catch(next);
+        .then(() => res.send({ data: card }));
     })
     .catch(next);
 }
