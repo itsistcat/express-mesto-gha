@@ -107,7 +107,7 @@ function deleteCard(req, res, next) {
         .then(() => res.send({ data: card }))
         .catch(next);
     })
-    .catch(next);
+    .catch('ERROR');
 }
 
 module.exports = {
