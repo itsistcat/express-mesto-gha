@@ -4,12 +4,10 @@ const { celebrate, Joi } = require('celebrate');
 const { URL_REGEX } = require('../utils/constants');
 const {
   createCard,
-
+  deleteCard,
   receiveCards,
   likeCard,
   dislikeCard,
-
-  deleteCard,
 } = require('../controllers/cards');
 
 router.post('/', celebrate({
@@ -35,9 +33,9 @@ router.delete('/:cardId/likes', celebrate({
   }),
 }), dislikeCard);
 
-router.delete('/:id', celebrate({
+router.delete('/:cardId', celebrate({
   params: Joi.object().keys({
-    id: Joi.string().length(24).hex().required(),
+    cardId: Joi.string().length(24).hex().required(),
   }),
 }), deleteCard);
 
