@@ -112,8 +112,10 @@ function deleteCard(req, res, next) {
 
 module.exports = {
   createCard,
-  deleteCard,
+
   receiveCards,
   likeCard,
   dislikeCard,
+
+  deleteCard,
 };

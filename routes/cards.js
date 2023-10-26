@@ -4,10 +4,12 @@ const { celebrate, Joi } = require('celebrate');
 const { URL_REGEX } = require('../utils/constants');
 const {
   createCard,
-  deleteCard,
+
   receiveCards,
   likeCard,
   dislikeCard,
+
+  deleteCard,
 } = require('../controllers/cards');
 
 router.post('/', celebrate({
