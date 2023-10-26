@@ -40,7 +40,7 @@ app.use(auth);
 app.use('/users', routeUsers);
 app.use('/cards', routeCards);
 
-app.use((req, res, next) => next(new NotFoundError('Страницы по запрошенному URL не существует')));
+app.use((req, res, next) => next(NotFoundError('Страницы по запрошенному URL не существует')));
 app.use(errors());
 app.use(errorHandler);
 
