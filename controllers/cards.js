@@ -88,7 +88,8 @@ function dislikeCard(req, res, next) {
     });
 }
 
-function deleteCard(req, res, next) {
+// eslint-disable-next-line spaced-comment
+/*function deleteCard(req, res, next) {
   const { id: cardId } = req.params;
   const { userId } = req.user;
 
@@ -104,6 +105,22 @@ function deleteCard(req, res, next) {
 
       card
         .remove()
+        .then(() => res.send({ data: card }))
+        .catch(next);
+    })
+    .catch(next);
+} */
+
+function deleteCard(req, res, next) {
+  Card
+    .findById(req.params.cardId)
+    .then((card) => {
+      if (!card) throw new NotFoundError('Данные по указанному id не найдены');
+
+      const { owner: cardOwnerId } = card;
+      if (cardOwnerId.owner.valueOf() !== req.user._id) throw new ForbiddenError('Нет прав доступа');
+
+      card.findByIdAndRemove(req.params.cardId)
         .then(() => res.send({ data: card }))
         .catch(next);
     })
