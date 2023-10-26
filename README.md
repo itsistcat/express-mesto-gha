@@ -1,6 +1,6 @@
-<!-- [![Tests](../../actions/workflows/tests-13-sprint.yml/badge.svg)](../../actions/workflows/tests-13-sprint.yml)-->
+[![Tests](../../actions/workflows/tests-13-sprint.yml/badge.svg)](../../actions/workflows/tests-13-sprint.yml)
+<!-- [![Tests](../../actions/workflows/tests-14-sprint.yml/badge.svg)](../../actions/workflows/tests-14-sprint.yml)-->
 
-[![Tests](../../actions/workflows/tests-14-sprint.yml/badge.svg)](../../actions/workflows/tests-14-sprint.yml)
 <h1 align="center">«Проект: Место - backend»🛣</h1>
 
 Проектная работа создана в рамках обучения в [Яндекс.Практикуме](https://practicum.yandex.ru/ "Яндекс Практикум") на курсе [«Веб-разработчик»](https://practicum.yandex.ru/web/ "Курс «Веб‑разработчик» — Яндекс Практикум")
